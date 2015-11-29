@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="timerWorkout">
+<head>
+    <meta charset="UTF-8">
+    <title>TimerWorkout List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>  
+    <script src="controller.js"></script>  
+</head>
+<body ng-controller="mainCtrl">
+<ul>
+	<li ng-repeat="workout in list">{{ $index }} - {{workout.name | uppercase}} - {{workout.rounds}} rounds {{workout.roundTime}} each</li>
+</ul>
+<p>All workouts: {{ list.length }}</p>
+<p>Name: {{ list[1].name }}</p>
+<p>Prep time: {{ list[1].prepTime }}</p>
+<p>Rounds: {{ var }} / {{ list[1].rounds }}</p>
+<p>Sets: {{ var }} / {{ list[1].sets }}</p>
+<p>Exercise: {{ exercise[list[1].exerciseId[0]].name }} - {{ exercise[list[1].exerciseId[0]].img }}</p>
+<p>Timer: {{ list[1].roundTime }}</p>
+<div ng-controller="counterCtrl">
+ <!--Angular Binding -->  
+<p ng-bind="counter"></p>
+    <button ng-click="stop()">Pause</button>
+    <button ng-click="countdown()">Start</button>     
+</div>
+<button ng-click="stopAll()">Stop</button>
+</body>
+</html>
